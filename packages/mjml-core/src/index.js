@@ -114,6 +114,8 @@ export default function mjml2html(mjml, options = {}) {
     noMigrateWarn = false,
     preprocessors,
     presets = [],
+    amp = false,
+    amp4email = false,
   } = {
     ...mjmlConfigOptions,
     ...options,
@@ -159,6 +161,8 @@ export default function mjml2html(mjml, options = {}) {
     title: '',
     forceOWADesktop: get(mjml, 'attributes.owa', 'mobile') === 'desktop',
     lang: get(mjml, 'attributes.lang'),
+    amp: get(mjml, 'attributes.amp') || amp,
+    amp4email: get(mjml, 'attributes.amp4email') || amp4email,
   }
 
   const validatorOptions = {
